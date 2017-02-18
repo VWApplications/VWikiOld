@@ -5,7 +5,9 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^', include('vwiki.core.urls'))
+    url(r'^', include('vwiki.core.urls')),
+    url(r'^conta/', include('vwiki.accounts.urls')),
+    url(r'^cursos/', include('vwiki.courses.urls'))
 ]
 
 if settings.DEBUG:

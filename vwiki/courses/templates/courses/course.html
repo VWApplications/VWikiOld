@@ -1,0 +1,33 @@
+{% extends 'core/base.html' %}
+{% load i18n %}
+{% load staticfiles %}
+{% block css %}
+  <link rel="stylesheet" href="{% static 'courses/css/courses.css' %}">
+{% endblock %}
+{% block sidebar %}
+  {% for topic in course.topics.all %}
+    {% if topic.subtopics.exists %}
+      <h5><i class="fa fa-leanpub fa-padding"></i>{{topic}}</h5>
+      {% for subtopic in topic.subtopics.all %}
+        <li>
+          {% if subtopic.lessons.exists %}
+            <div class="collapsible-header"><i class="fa fa-caret-down right"></i><span class="truncate">{{subtopic}}</span></div>
+            <div class="collapsible-body">
+              <div class="collection">
+                {% for lesson in subtopic.lessons.all %}
+                  <a href="#" class="collection-item truncate">{{lesson}}</a>
+                {% endfor %}
+              </div>
+            </div>
+          {% endif %}
+        </li>
+      {% endfor %}
+    {% endif %}
+  {% empty %}
+    <p>{% trans 'There are no content' %}</p>
+  {% endfor %}
+{% endblock %}
+{% block title %}Detalhes do Curso{% endblock %}
+{% block main %}
+  <h1>{{course}}</h1>
+{% endblock %}

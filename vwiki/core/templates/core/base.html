@@ -4,16 +4,53 @@
 <html lang="pt-br">
   <head>
     <meta charset="utf-8" />
-    <title>Engenharia de Software</title>
+    <title>VWiki</title>
     <link rel="icon" href="https://gitlab.com/victorhad/Web/raw/43896252130a1888f67be4d59538a819099b827d/Projetos/Biografia/img/favicon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
     <link rel="stylesheet" href="{% static 'core/css/home.css' %}">
+    {% block css %}{% endblock %}
   </head>
   <body>
     <header>
-      {% include 'core/sidebar.html' %}
+      <nav>
+        <div class="nav-wrapper color">
+          <a href="{% url 'core:home' %}" class="brand-logo"><i class="fa fa-home left"></i>VWiki</a>
+          <a href="/admin/" target="_blank" class="right login"><i class="fa fa-sign-in left"></i>Admin</a>
+          <a href="#" data-activates="slide-out" class="button-collapse"><i class="fa fa-bars md-20"></i></a>
+        </div>
+      </nav>
+      <ul id="slide-out" class="side-nav fixed">
+        <li>
+          <div class="userView">
+            <div class="background">
+              <img src="http://images.freeimages.com/images/previews/85e/sunrise-1451941.jpg">
+            </div>
+            <img class="circle" src="{% static 'core/img/eu.jpg' %}">
+            <span class="white-text name">{{user.first_name}}</span>
+            <span class="white-text email">{{user.email}}</span>
+          </div>
+        </li>
+        <ul class="collapsible" data-collapsible="accordion">
+          {% block sidebar %}
+            {% for category in categories %}
+              <li>
+                <div class="collapsible-header"><i class="{{category.icon}} left"></i>{{category.title}}</div>
+                <div class="collapsible-body">
+                  <div class="collection">
+                    {% for course in category.courses.all %}
+                      <a href="{% url 'courses:course' course.slug %}" class="collection-item">{{course.title}}</a>
+                    {% endfor %}
+                  </div>
+                </div>
+              </li>
+            {% empty %}
+              <p>{% trans 'There are no categories or courses registred' %}</p>
+            {% endfor %}
+          {% endblock %}
+        </ul>
+      </ul>
     </header>
     <main>
       <div class="row">
@@ -23,7 +60,7 @@
       </div>
     </main>
     <footer>
-      <p>Feito por Victor Arnaud</p>
+      <p>{% trans 'Made by' %} <a href="https://github.com/VictorArnaud">Victor Arnaud</a></p>
       {% include 'core/links.html' %}
     </footer>
     <!-- SCRIPTS -->
@@ -33,5 +70,6 @@
     <script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});</script>
     <script src="{% static 'core/js/home.js' %}"></script>
     <script src="{% static 'core/js/search.js' %}"></script>
+    {% block js %}{% endblock %}
   </body>
 </html>
