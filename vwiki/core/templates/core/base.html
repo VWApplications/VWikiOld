@@ -1,0 +1,37 @@
+{% load static %}
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8" />
+    <title>Engenharia de Software</title>
+    <link rel="icon" href="https://gitlab.com/victorhad/Web/raw/43896252130a1888f67be4d59538a819099b827d/Projetos/Biografia/img/favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+    <link rel="stylesheet" href="{% static 'core/css/home.css' %}">
+  </head>
+  <body>
+    <header>
+      {% include 'core/sidebar.html' %}
+    </header>
+    <main>
+      <div class="row">
+        <div class="col s12">
+          {% block main %}{% endblock %}
+        </div>
+      </div>
+    </main>
+    <footer>
+      <p>Feito por Victor Arnaud</p>
+      {% include 'core/links.html' %}
+    </footer>
+    <!-- SCRIPTS -->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+    <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});</script>
+    <script src="{% static 'core/js/home.js' %}"></script>
+    <script src="{% static 'core/js/search.js' %}"></script>
+  </body>
+</html>

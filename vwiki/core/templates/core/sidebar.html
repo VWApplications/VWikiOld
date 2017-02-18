@@ -1,0 +1,49 @@
+{% load static %}
+{% load i18n %}
+  <nav>
+    <div class="nav-wrapper color">
+      <a href="#" class="brand-logo"><i class="fa fa-home left"></i>Victor Arnaud</a>
+      <a href="#" data-activates="slide-out" class="button-collapse"><i class="fa fa-bars"></i></a>
+    </div>
+  </nav>
+  <ul id="slide-out" class="side-nav fixed">
+    <li>
+      <div class="userView">
+        <div class="background">
+          <img src="http://images.freeimages.com/images/previews/85e/sunrise-1451941.jpg">
+        </div>
+        <img class="circle" src="{% static 'core/img/eu.jpg' %}">
+        <span class="white-text name">Victor Arnaud</span>
+        <span class="white-text email">victorhad@gmail.com</span>
+      </div>
+    </li>
+    <ul class="collapsible" data-collapsible="accordion">
+      <li>
+        <div class="collapsible-header"><i class="fa fa-book left"></i>Humanas</div>
+        <div class="collapsible-body">
+          <div class="collection">
+            <a href="#" class="collection-item">Devops</a>
+            <a href="#" class="collection-item">Linux</a>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="collapsible-header"><i class="fa fa-bar-chart left"></i>Exatas</div>
+        <div class="collapsible-body">
+          <div class="collection">
+            <a href="#" class="collection-item truncate">Algebra Linear</a>
+            <a href="#" class="collection-item truncate">Calculo 01</a>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="collapsible-header"><i class="fa fa-code left"></i>Linguagens</div>
+        <div class="collapsible-body">
+          <div class="collection">
+            <a href="#" class="collection-item truncate">Android</a>
+            <a href="#" class="collection-item truncate">Arduino e RaspBerry PI</a>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </ul>

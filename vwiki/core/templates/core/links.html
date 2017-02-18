@@ -1,0 +1,28 @@
+{% load static %}
+{% load i18n %}
+<div class="fixed-action-btn">
+  <a class="btn-floating btn-large red waves-effect" href="#modal"><i class="large fa fa-link"></i></a>
+</div>
+<!-- MODAL -->
+<div id="modal" class="modal modal-fixed-footer">
+  <div class="modal-content">
+    <h3>{% trans 'Links' %}</h3>
+    <div class="input-field col s12">
+      <i class="fa fa-search prefix"></i>
+      <input type="text" id="searchInput" onkeyup="searchSites()" placeholder="{% trans 'Search links' %}">
+    </div>
+    <ul class="collapsible" data-collapsible="accordion" id="searchUL">
+      <li>
+        <div class="collapsible-header"><a href="https://www.udemy.com/home/my-courses/learning/" target="_blank"><i class="fa fa-link left"></i>Udemy</a></div>
+        <div class="collapsible-body"><p>Cursos online de várias categorias.</p></div>
+      </li>
+      <li>
+        <div class="collapsible-header"><a href="https://www.alura.com.br/" target="_blank"><i class="fa fa-link left"></i>Alura</a></div>
+        <div class="collapsible-body"><p>Cursos online de programação, infraestrutura, design, business, mobile e front-end.</p></div>
+      </li>
+    </ul>
+  </div>
+  <div class="modal-footer">
+    <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">{% trans 'Close' %}</a>
+  </div>
+</div>

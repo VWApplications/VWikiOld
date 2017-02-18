@@ -1,0 +1,119 @@
+
+/*******************************************************************
+
+This chunk is to fix Bootstrap so that the Markdown output looks good
+
+*******************************************************************/
+
+body {
+  padding-top: 60px;
+  padding-bottom: 40px;
+  font-size: 15px;
+  line-height: 150%;
+}
+
+xmp, textarea {
+  display: none;
+}
+
+h1,h2,h3,h4 {
+  margin: 15px 0;
+}
+
+pre {
+  margin: 20px 0;
+}
+
+img {
+  margin: 10px 0;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+a {
+  color: #6f78c0;
+}
+
+.navbar {
+  z-index: 1;
+}
+
+.table {
+  width: auto;
+}
+
+.back-link {
+  position: fixed;
+  right: 0;
+  top: 12px;
+  padding-right: 15px;
+  z-index: 1;
+}
+
+.collection a.collection-item {
+  color: black;
+}
+
+/*******************************************************************
+
+This chunk is for Google's Code Prettify:
+http://google-code-prettify.googlecode.com
+
+*******************************************************************/
+
+
+/* Pretty printing styles. Used with prettify.js. */
+
+/* SPAN elements with the classes below are added by prettyprint. */
+.pln { color: #F8F8F2 }  /* plain text */
+
+@media screen {
+  .str { color: #E4D973 }  /* string content */
+  .kwd { color: #F92672 }  /* a keyword */
+  .com { color: #71715E }  /* a comment */
+  .typ { color: #66D9EF }  /* a type name */
+  .lit { color: #A2E22E}  /* a literal value */
+  /* punctuation, lisp open bracket, lisp close bracket */
+  .pun, .opn, .clo { color: #F8F8F2 }
+  .tag { color: #F92672}  /* a markup tag name */
+  .atn { color: #A2E22E }  /* a markup attribute name */
+  .atv { color: #E4D973 }  /* a markup attribute value */
+  .dec, .var { color: #66D9EF }  /* a declaration; a variable name */
+  .fun { color: #A2E22E }  /* a function name */
+}
+
+/* Use higher contrast and text-weight for printable form. */
+@media print, projection {
+  .str { color: #060 }
+  .kwd { color: #006; font-weight: bold }
+  .com { color: #600; font-style: italic }
+  .typ { color: #404; font-weight: bold }
+  .lit { color: #044 }
+  .pun, .opn, .clo { color: #440 }
+  .tag { color: #006; font-weight: bold }
+  .atn { color: #404 }
+  .atv { color: #060 }
+}
+
+/* Put a border around prettyprinted code snippets. */
+pre.prettyprint { padding: 2px; border: 1px solid #888 }
+
+/* Specify class=linenums on a pre to get line numbering */
+ol.linenums { margin-top: 0; margin-bottom: 0 } /* IE indents via margin-left */
+li.L0,
+li.L1,
+li.L2,
+li.L3,
+li.L5,
+li.L6,
+li.L7,
+li.L8 { list-style-type: none }
+/* Alternate shading for lines */
+li.L1,
+li.L3,
+li.L5,
+li.L7,
+li.L9 { background: #eee }
+

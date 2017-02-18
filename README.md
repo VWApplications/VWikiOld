@@ -7,3 +7,5 @@ Wiki para inserir resumos
 [![Issue Count](https://codeclimate.com/github/VWApplications/VWiki/badges/issue_count.svg)](https://codeclimate.com/github/VWApplications/VWiki)
 
 [![Coverage Status](https://coveralls.io/repos/github/VWApplications/VWiki/badge.svg?branch=master)](https://coveralls.io/github/VWApplications/VWiki?branch=master)
+
+[![Build Status](https://travis-ci.org/VWApplications/VWiki.svg?branch=master)](https://travis-ci.org/VWApplications/VWiki)
