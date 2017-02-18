@@ -87,3 +87,7 @@ ENV/
 
 # Rope project settings
 .ropeproject
+
+# Local settings
+vwiki/local_settings.py
+media
