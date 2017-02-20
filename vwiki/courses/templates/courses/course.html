@@ -4,10 +4,15 @@
 {% block css %}
   <link rel="stylesheet" href="{% static 'courses/css/courses.css' %}">
 {% endblock %}
+{% block js %}
+  <script src="{% static 'courses/js/courses.js' %}"></script>
+{% endblock %}
 {% block sidebar %}
+  <h4 class="center-align">{{course}}</h4>
+  <hr />
   {% for topic in course.topics.all %}
     {% if topic.subtopics.exists %}
-      <h5><i class="fa fa-leanpub fa-padding"></i>{{topic}}</h5>
+      <h5>{{topic}}</h5>
       {% for subtopic in topic.subtopics.all %}
         <li>
           {% if subtopic.lessons.exists %}
@@ -29,5 +34,80 @@
 {% endblock %}
 {% block title %}Detalhes do Curso{% endblock %}
 {% block main %}
-  <h1>{{course}}</h1>
+<div class="card">
+  <div class="card-tabs">
+    <ul class="tabs tabs-fixed-width teal darken-4">
+      <li class="tab"><a class="active" href="#course"><i class="fa fa-leanpub fa-padding"></i>Curso</a></li>
+      <li class="tab"><a href="#topic"><i class="fa fa-plus fa-padding"></i>Adicionar Tópico</a></li>
+      <li class="tab"><a href="#subtopic"><i class="fa fa-plus fa-padding"></i>Adicionar Subtópico</a></li>
+      <li class="tab"><a href="#lesson"><i class="fa fa-plus fa-padding"></i>Adicionar Aula</a></li>
+    </ul>
+  </div>
+  <div class="card-content grey lighten-4">
+    <div id="course">
+      <h2>{{course}}</h2>
+      <hr />
+      <div class="card card-description">
+        <p class="flow-text">Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit
+        amet aliquam vel, ullamcorper sit amet ligula. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;
+        Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Nulla porttitor accumsan tincidunt. Proin eget tortor risus.
+        faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula.</p>
+      </div>
+    </div>
+    <div id="topic">
+      <form method="post" class="col s12">
+        {% csrf_token %}
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="topic-input" type="text" name="topic" data-length="30">
+            <label for="topic-input">Tópico</label>
+          </div>
+        </div>
+        <button class="waves-effect waves-light teal darken-4 btn right" type="submit"><i class="fa fa-send-o right"></i>Salvar</button>
+      </form>
+    </div>
+    <div id="subtopic">
+      <form method="post" class="col s12">
+        {% csrf_token %}
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="subtopic-input" type="text" name="subtopic" data-length="30">
+            <label for="subtopic-input">Subtópico</label>
+          </div>
+          <div class="input-field col s12">
+            <select>
+              <option value="" disabled selected>Escolha um tópico</option>
+              <option value="1">Topico 1</option>
+              <option value="2">Topico 2</option>
+              <option value="3">Topico 3</option>
+            </select>
+            <label>Tópico</label>
+          </div>
+        </div>
+        <button class="waves-effect waves-light teal darken-4 btn right" type="submit"><i class="fa fa-send-o right"></i>Salvar</button>
+      </form>
+    </div>
+    <div id="lesson">
+      <form method="post" class="col s12">
+        {% csrf_token %}
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="lesson-input" type="text" name="lesson" data-length="30">
+            <label for="lesson-input">Aula</label>
+          </div>
+          <div class="input-field col s12">
+            <select>
+              <option value="" disabled selected>Escolha um subtópico</option>
+              <option value="1">Subtopico 1</option>
+              <option value="2">Subtopico 2</option>
+              <option value="3">Subtopico 3</option>
+            </select>
+            <label>Subtópico</label>
+          </div>
+        </div>
+        <button class="waves-effect waves-light teal darken-4 btn right" type="submit"><i class="fa fa-send-o right"></i>Salvar</button>
+      </form>
+    </div>
+  </div>
+</div>
 {% endblock %}

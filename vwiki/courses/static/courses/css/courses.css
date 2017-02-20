@@ -1,5 +1,15 @@
 .fa-padding {padding-right: 6px;}
-.login {padding-right: 10px;}
 .md-20 {font-size: 20px;}
 .md-24 {font-size: 24px;}
 .md-36 {font-size: 36px;}
+
+/* Tabulação dos cursos */
+.tabs .tab a:hover, .tabs .tab a.active {color:white;}
+.tabs .indicator {height:4px; background-color:white;}
+.tabs .tab a {color:#eeeeee;}
+.tabs {background-color:#e0e0e0; border-radius: 10px 10px 0 0;}
+
+/* Card */
+.card .card-content {height:495px; overflow-y: scroll;}
+.card {border-radius: 10px 10px 0 0;}
+.card-description {padding: 20px;}
